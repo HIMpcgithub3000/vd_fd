@@ -179,6 +179,13 @@ The architecture is deliberately small. Two services, one model, one vector stor
 > The full walkthrough of every stage — intent classes, gate threshold, language-lock framing, tool list, theme system — lives in [`PROJECT_OVERVIEW.md`](./PROJECT_OVERVIEW.md). The "why we picked / cut" trade-off log is in [`DECISIONS.md`](./DECISIONS.md).
 
 ---
+<img width="1470" height="835" alt="image" src="https://github.com/user-attachments/assets/bc2c9df1-1e47-4fdf-9bcb-870c6c300487" />
+
+<img width="1470" height="836" alt="image" src="https://github.com/user-attachments/assets/dff12880-690d-4b92-964b-061f1e7556d5" />
+
+<img width="308" height="636" alt="image" src="https://github.com/user-attachments/assets/6fe28bb9-9034-4cd2-a943-7d4b59f0b3f4" />
+
+<img width="297" height="465" alt="image" src="https://github.com/user-attachments/assets/74b38c25-8ca9-4545-985c-e979c1861361" />
 
 ## 6. What's Next
 
@@ -215,7 +222,16 @@ If a 52-year-old retired clerk can ask his question in Hindi, hear it answered c
 That is the whole point.
 
 ---
+## Key Highlights
 
+- 🌐 15 Indian languages
+- 🏦 RBI & DICGC grounded answers
+- 📄 Citation-based explainability
+- 🎤 Voice interaction
+- 🧮 Deterministic FD calculations
+- 🔒 Compliance-aware responses
+- 💻 Fully local inference with Ollama
+  
 ## How to run it
 
 ```bash
@@ -287,9 +303,16 @@ vidyakosh/
 ```
 
 ---
+## Demo Flow
 
+1. Ask an FD question in Hindi
+2. View citation-backed response
+3. Open RBI source reference
+4. Compare FD plans
+5. Use voice interaction
+6. View deterministic FD calculations
 ## License & notice
-
+---
 Educational use only. **The Vernacular FD Advisor is not financial advice.** Always confirm rates, rules, and protections directly with your bank or with the RBI before any decision. Sample transaction data used for the behavioural-insight chip is synthetic and modelled on public-forum patterns — never scraped.
 
 > *आपकी भाषा में, आपके पैसे की बात — सीधे, सरल, और ज़िम्मेदार।*
