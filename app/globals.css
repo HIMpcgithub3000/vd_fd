@@ -1,0 +1,457 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Theme tokens — light by default, dark via `:root.dark` (toggled by
+ * components/ui/ThemeToggle.tsx). Keeping the slate scale "inverted"
+ * in light mode means existing utility classes (bg-slate-900, text-slate-100,
+ * border-slate-800, etc.) keep working in both modes without touching
+ * a single component file.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Slate scale — inverted in light mode so bg-slate-950 is near-white,
+     text-slate-100 is near-black, etc. */
+  --slate-50: 2 6 23;
+  --slate-100: 15 23 42;
+  --slate-200: 30 41 59;
+  --slate-300: 51 65 85;
+  --slate-400: 71 85 105;
+  --slate-500: 100 116 139;
+  --slate-600: 148 163 184;
+  --slate-700: 203 213 225;
+  --slate-800: 226 232 240;
+  --slate-900: 243 244 246;
+  --slate-950: 250 250 247; /* warm cream — page background */
+
+  /* Indigo scale — primary brand accents. Inverted so deep dark-mode
+     panels (bg-indigo-950) become very-light tints in light mode. */
+  --indigo-50: 30 27 75;
+  --indigo-100: 49 46 129;
+  --indigo-200: 55 48 163;
+  --indigo-300: 67 56 202;
+  --indigo-400: 79 70 229;
+  --indigo-500: 99 102 241;
+  --indigo-600: 99 102 241;
+  --indigo-700: 129 140 248;
+  --indigo-800: 199 210 254;
+  --indigo-900: 224 231 255;
+  --indigo-950: 238 242 255;
+
+  --amber-50: 69 26 3;
+  --amber-100: 120 53 15;
+  --amber-200: 146 64 14;
+  --amber-300: 180 83 9;
+  --amber-400: 217 119 6;
+  --amber-500: 245 158 11;
+  --amber-600: 251 191 36;
+  --amber-700: 252 211 77;
+  --amber-800: 253 230 138;
+  --amber-900: 254 243 199;
+  --amber-950: 255 251 235;
+
+  --emerald-50: 2 44 34;
+  --emerald-100: 6 78 59;
+  --emerald-200: 6 95 70;
+  --emerald-300: 4 120 87;
+  --emerald-400: 5 150 105;
+  --emerald-500: 16 185 129;
+  --emerald-600: 52 211 153;
+  --emerald-700: 110 231 183;
+  --emerald-800: 167 243 208;
+  --emerald-900: 209 250 229;
+  --emerald-950: 236 253 245;
+
+  --red-50: 69 10 10;
+  --red-100: 127 29 29;
+  --red-200: 153 27 27;
+  --red-300: 185 28 28;
+  --red-400: 220 38 38;
+  --red-500: 239 68 68;
+  --red-600: 248 113 113;
+  --red-700: 252 165 165;
+  --red-800: 254 202 202;
+  --red-900: 254 226 226;
+  --red-950: 254 242 242;
+
+  --yellow-50: 66 32 6;
+  --yellow-100: 113 63 18;
+  --yellow-200: 133 77 14;
+  --yellow-300: 161 98 7;
+  --yellow-400: 202 138 4;
+  --yellow-500: 234 179 8;
+  --yellow-600: 250 204 21;
+  --yellow-700: 253 224 71;
+  --yellow-800: 254 240 138;
+  --yellow-900: 254 249 195;
+  --yellow-950: 254 252 232;
+
+  --green-50: 5 46 22;
+  --green-100: 20 83 45;
+  --green-200: 22 101 52;
+  --green-300: 21 128 61;
+  --green-400: 22 163 74;
+  --green-500: 34 197 94;
+  --green-600: 74 222 128;
+  --green-700: 134 239 172;
+  --green-800: 187 247 208;
+  --green-900: 220 252 231;
+  --green-950: 240 253 244;
+
+  --violet-50: 46 16 101;
+  --violet-100: 76 29 149;
+  --violet-200: 91 33 182;
+  --violet-300: 109 40 217;
+  --violet-400: 124 58 237;
+  --violet-500: 139 92 246;
+  --violet-600: 167 139 250;
+  --violet-700: 196 181 253;
+  --violet-800: 221 214 254;
+  --violet-900: 237 233 254;
+  --violet-950: 245 243 255;
+
+  --rose-50: 76 5 25;
+  --rose-100: 136 19 55;
+  --rose-200: 159 18 57;
+  --rose-300: 190 18 60;
+  --rose-400: 225 29 72;
+  --rose-500: 244 63 94;
+  --rose-600: 251 113 133;
+  --rose-700: 253 164 175;
+  --rose-800: 254 205 211;
+  --rose-900: 255 228 230;
+  --rose-950: 255 241 242;
+
+  /* Semantic tokens used by hand-rolled CSS below */
+  --color-page-bg: 250 250 247;
+  --color-page-fg: 15 23 42;
+  --color-strong-fg: 2 6 23;
+  --color-code-bg: 241 245 249;
+  --color-scrollbar-track: 226 232 240;
+  --color-scrollbar-thumb: 148 163 184;
+  --color-scrollbar-thumb-hover: 100 116 139;
+  --color-citation-text: 67 56 202;
+}
+
+:root.dark {
+  color-scheme: dark;
+
+  --slate-50: 248 250 252;
+  --slate-100: 241 245 249;
+  --slate-200: 226 232 240;
+  --slate-300: 203 213 225;
+  --slate-400: 148 163 184;
+  --slate-500: 100 116 139;
+  --slate-600: 71 85 105;
+  --slate-700: 51 65 85;
+  --slate-800: 30 41 59;
+  --slate-900: 15 23 42;
+  --slate-950: 2 6 23;
+
+  --indigo-50: 238 242 255;
+  --indigo-100: 224 231 255;
+  --indigo-200: 199 210 254;
+  --indigo-300: 165 180 252;
+  --indigo-400: 129 140 248;
+  --indigo-500: 99 102 241;
+  --indigo-600: 79 70 229;
+  --indigo-700: 67 56 202;
+  --indigo-800: 55 48 163;
+  --indigo-900: 49 46 129;
+  --indigo-950: 30 27 75;
+
+  --amber-50: 255 251 235;
+  --amber-100: 254 243 199;
+  --amber-200: 253 230 138;
+  --amber-300: 252 211 77;
+  --amber-400: 251 191 36;
+  --amber-500: 245 158 11;
+  --amber-600: 217 119 6;
+  --amber-700: 180 83 9;
+  --amber-800: 146 64 14;
+  --amber-900: 120 53 15;
+  --amber-950: 69 26 3;
+
+  --emerald-50: 236 253 245;
+  --emerald-100: 209 250 229;
+  --emerald-200: 167 243 208;
+  --emerald-300: 110 231 183;
+  --emerald-400: 52 211 153;
+  --emerald-500: 16 185 129;
+  --emerald-600: 5 150 105;
+  --emerald-700: 4 120 87;
+  --emerald-800: 6 95 70;
+  --emerald-900: 6 78 59;
+  --emerald-950: 2 44 34;
+
+  --red-50: 254 242 242;
+  --red-100: 254 226 226;
+  --red-200: 254 202 202;
+  --red-300: 252 165 165;
+  --red-400: 248 113 113;
+  --red-500: 239 68 68;
+  --red-600: 220 38 38;
+  --red-700: 185 28 28;
+  --red-800: 153 27 27;
+  --red-900: 127 29 29;
+  --red-950: 69 10 10;
+
+  --yellow-50: 254 252 232;
+  --yellow-100: 254 249 195;
+  --yellow-200: 254 240 138;
+  --yellow-300: 253 224 71;
+  --yellow-400: 250 204 21;
+  --yellow-500: 234 179 8;
+  --yellow-600: 202 138 4;
+  --yellow-700: 161 98 7;
+  --yellow-800: 133 77 14;
+  --yellow-900: 113 63 18;
+  --yellow-950: 66 32 6;
+
+  --green-50: 240 253 244;
+  --green-100: 220 252 231;
+  --green-200: 187 247 208;
+  --green-300: 134 239 172;
+  --green-400: 74 222 128;
+  --green-500: 34 197 94;
+  --green-600: 22 163 74;
+  --green-700: 21 128 61;
+  --green-800: 22 101 52;
+  --green-900: 20 83 45;
+  --green-950: 5 46 22;
+
+  --violet-50: 245 243 255;
+  --violet-100: 237 233 254;
+  --violet-200: 221 214 254;
+  --violet-300: 196 181 253;
+  --violet-400: 167 139 250;
+  --violet-500: 139 92 246;
+  --violet-600: 124 58 237;
+  --violet-700: 109 40 217;
+  --violet-800: 91 33 182;
+  --violet-900: 76 29 149;
+  --violet-950: 46 16 101;
+
+  --rose-50: 255 241 242;
+  --rose-100: 255 228 230;
+  --rose-200: 254 205 211;
+  --rose-300: 253 164 175;
+  --rose-400: 251 113 133;
+  --rose-500: 244 63 94;
+  --rose-600: 225 29 72;
+  --rose-700: 190 18 60;
+  --rose-800: 159 18 57;
+  --rose-900: 136 19 55;
+  --rose-950: 76 5 25;
+
+  --color-page-bg: 2 6 23;
+  --color-page-fg: 226 232 240;
+  --color-strong-fg: 241 245 249;
+  --color-code-bg: 15 23 42;
+  --color-scrollbar-track: 15 23 42;
+  --color-scrollbar-thumb: 51 65 85;
+  --color-scrollbar-thumb-hover: 71 85 105;
+  --color-citation-text: 165 180 252;
+}
+
+html,
+body {
+  background-color: rgb(var(--color-page-bg));
+  color: rgb(var(--color-page-fg));
+  font-family: 'Inter', 'Noto Sans Devanagari', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Devanagari rendering quality (Hindi, Bhojpuri, Maithili, Marathi) */
+:lang(hi),
+:lang(bho),
+:lang(mai),
+:lang(mr),
+.devanagari,
+.script-devanagari {
+  font-family: 'Noto Sans Devanagari', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: 'liga', 'calt';
+}
+
+.script-bengali,
+:lang(bn),
+:lang(as) {
+  font-family: 'Noto Sans Bengali', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+.script-gujarati,
+:lang(gu) {
+  font-family: 'Noto Sans Gujarati', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+.script-gurmukhi,
+:lang(pa) {
+  font-family: 'Noto Sans Gurmukhi', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+.script-tamil,
+:lang(ta) {
+  font-family: 'Noto Sans Tamil', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+.script-telugu,
+:lang(te) {
+  font-family: 'Noto Sans Telugu', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+.script-kannada,
+:lang(kn) {
+  font-family: 'Noto Sans Kannada', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+.script-malayalam,
+:lang(ml) {
+  font-family: 'Noto Sans Malayalam', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+.script-odia,
+:lang(or) {
+  font-family: 'Noto Sans Oriya', 'Noto Sans Odia', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+.script-arabic,
+:lang(ur) {
+  font-family: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  direction: rtl;
+}
+
+/* Citation badge */
+.citation-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  margin: 0 2px;
+  background-color: rgb(99 102 241 / 0.18);
+  color: rgb(var(--color-citation-text));
+  border: 1px solid rgb(99 102 241 / 0.4);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 150ms ease;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+.citation-badge:hover {
+  background-color: rgb(99 102 241 / 0.32);
+  border-color: rgb(99 102 241 / 0.7);
+}
+
+/*
+ * Senior-citizen typography mode (toggled by components/ui/TextSizeToggle).
+ * `text-size-lg` and `text-size-xl` boost the *root* font size, so all rem-
+ * based Tailwind utilities scale uniformly. Line-height is also nudged up
+ * for readability.
+ */
+:root.text-size-lg {
+  font-size: 18px;
+}
+:root.text-size-lg body {
+  line-height: 1.65;
+}
+:root.text-size-xl {
+  font-size: 20px;
+}
+:root.text-size-xl body {
+  line-height: 1.7;
+}
+
+/*
+ * Evidence highlight — phrases in the assistant's reply that exist verbatim
+ * inside a cited chunk. A subtle amber underline + warm tint communicates
+ * "this sentence is grounded in retrieval" without distracting from the
+ * answer text.
+ */
+.evidence-mark {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 70%,
+    rgb(245 158 11 / 0.32) 70%,
+    rgb(245 158 11 / 0.32) 100%
+  );
+  border-radius: 2px;
+  padding: 0 1px;
+  cursor: help;
+}
+:root.dark .evidence-mark {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 70%,
+    rgb(245 158 11 / 0.28) 70%,
+    rgb(245 158 11 / 0.28) 100%
+  );
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-scrollbar-track));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-scrollbar-thumb));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-scrollbar-thumb-hover));
+}
+
+.streaming-caret::after {
+  content: '▍';
+  display: inline-block;
+  margin-left: 2px;
+  color: rgb(var(--color-citation-text));
+  animation: blink 1s steps(2) infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.confidence-high {
+  background-color: rgb(34 197 94 / 0.15);
+  color: rgb(21 128 61);
+  border-color: rgb(34 197 94 / 0.45);
+}
+:root.dark .confidence-high {
+  color: rgb(74 222 128);
+}
+.confidence-medium {
+  background-color: rgb(234 179 8 / 0.18);
+  color: rgb(161 98 7);
+  border-color: rgb(234 179 8 / 0.5);
+}
+:root.dark .confidence-medium {
+  color: rgb(250 204 21);
+}
+.confidence-low {
+  background-color: rgb(239 68 68 / 0.15);
+  color: rgb(185 28 28);
+  border-color: rgb(239 68 68 / 0.45);
+}
+:root.dark .confidence-low {
+  color: rgb(248 113 113);
+}
+
+/* Markdown body inside chat bubble */
+.md-body p { margin: 0.5rem 0; line-height: 1.65; }
+.md-body strong { color: rgb(var(--color-strong-fg)); font-weight: 600; }
+.md-body code {
+  background-color: rgb(var(--color-code-bg));
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+.md-body ul, .md-body ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+.md-body li { margin: 0.25rem 0; }
+
+/* Subtle layered surface used in light mode only */
+:root:not(.dark) body {
+  background-image:
+    radial-gradient(800px 400px at 0% 0%, rgb(99 102 241 / 0.06), transparent 60%),
+    radial-gradient(700px 380px at 100% 0%, rgb(245 158 11 / 0.05), transparent 60%);
+  background-attachment: fixed;
+}

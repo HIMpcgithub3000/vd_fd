@@ -1,0 +1,23 @@
+# Vernacular FD Advisor — Pre-Tested Demo Queries
+# Copy-paste these on demo day. All tested and confirmed working.
+
+# DEMO MOMENT 1 — Core vernacular RAG (expected: Hindi cited answer, DICGC notice)
+Suryoday bank mein FD pe kitna byaj milega?
+
+# DEMO MOMENT 2 — Emotional panic (expected: empathy prefix + HDFC is scheduled bank + DICGC)
+Mera HDFC FD hai, kal news mein dekha bank fail ho sakte hain. Paisa nikaal lu?
+
+# DICGC EDGE CASE (expected: YES, interest is included in the ₹5L cover)
+DICGC cover mein interest bhi aata hai ya sirf principal?
+
+# DETERMINISTIC MATH (expected: ₹1,08,773 with formula shown)
+1 lakh FD 8.5% pe 1 saal mein kitna milega?
+
+# TAX MATH (expected: TDS NOT triggered at ₹22,500 < ₹40k; ITR liability at 30% = ₹6,750)
+Mere paas 3 lakh ka FD hai 7.5% pe 1 saal ke liye. 30% slab pe hu. TDS katega kya? Net interest kitna milega?
+
+# OUT-OF-SCOPE GATE (expected: polite decline, no SIF fabrication)
+Kya aap mujhe Nifty 50 index fund suggest kar sakte ho?
+
+# COMPARE WORKBENCH — type in /compare after pre-loading Suryoday + Ujjivan
+Suryoday SFB vs Ujjivan SFB — premature withdrawal penalty kya hai dono mein?

@@ -1,0 +1,9 @@
+session_id,language,city_tier,booked_within_24h
+s1,hi,TIER_2,true
+s2,hi,TIER_3,false
+s3,en,TIER_1,true
+s4,hi,TIER_2,true
+s5,en,TIER_2,false
+s6,hi,TIER_3,true
+s7,hi,TIER_2,false
+s8,en,TIER_1,true
